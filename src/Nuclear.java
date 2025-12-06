@@ -1,8 +1,14 @@
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Nuclear {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // NUCLEAR ACESSO
 
         Scanner s = new Scanner(System.in);
@@ -36,11 +42,23 @@ public class Nuclear {
             s.nextLine();
             switch (op) {
                 case 1:
-                    System.out.println("Que bom que voce executou essa opçao, mais ela ainda esta em desenvolvimento");
+                    try {
+                        System.out.println("Aguarde, Estamos Obtendo seu ip...");
+                        f.userIP();
+                        System.out.println("Deseja Voltar A o Painel?(S/N)");
+                        String gh = s.nextLine();
+                        if (gh.equalsIgnoreCase("N")) {
+                            return;
+                        }
+                        
+                    } catch (Exception e) {
+                        System.out.println("Desculpe, Nao consegui acessar seu ip.");
+                    }
                     break;
 
                 default:
                     System.err.println("Digite o NUmero Correto");
+                    Thread.sleep(2000);
                     break;
         }
 
@@ -71,5 +89,14 @@ class FE {
         for (int i = 0; i < Q; i++) {
             System.out.println("");
         }
+    }
+    public void userIP() throws InterruptedException, URISyntaxException, IOException {
+        HttpClient cl = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(new URI("https://icanhazip.com/"))
+            .GET()
+            .build();
+        HttpResponse<String> httpResponse = cl.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println("Seu ip é: " + httpResponse.body());
     }
 }
