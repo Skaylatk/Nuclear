@@ -4,6 +4,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.io.*;
+import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,8 +36,9 @@ public class Nuclear {
 
        while (true) {
             ui.menu();
-            System.out.println("Seja Bem vindo A o Painel Nuclear, Se divirta com as opçoes: ");
-            System.out.println("1. Seu IP\n");
+            System.out.println("Seja Bem vindo A o Painel Nuclear, Se divirta com as opçoes:\n");
+            System.out.println("1. Seu IP");
+            System.out.println("2. Armageddon (VIRUS) - Em desenvolvimento\n");
             System.out.print("Porfavor, Digite o Numero Referente a sua escolha: ");
             int op = s.nextInt();
             s.nextLine();
@@ -56,6 +58,26 @@ public class Nuclear {
                     }
                     break;
 
+                case 2:
+                    System.out.println("Atenção, Mesmo Que esse Virus Não seja poderoso, por favor, utilize com moderaçao");
+                    System.out.print("Deseja Mesmo Arriscar o Risco de Executar(S/N): ");
+                    String wdf = s.nextLine();
+                    if (wdf.equalsIgnoreCase("S")) {
+                        try {
+                            f.clear(85);
+                            ui.menu_arm();
+                            f.Armageddon();
+                            System.out.println("Executado com sucesso, aproveite seu computador.");
+                            System.out.println("Espere um Pouco, voce sera direcionado para o painel.");
+                            Thread.sleep(3000);
+
+
+                        } catch (Exception e) {
+                            System.out.println("Desculpe, mais occoreu um erro na execuçao.");
+                        }
+                    } 
+                    break;
+
                 default:
                     System.err.println("Digite o NUmero Correto");
                     Thread.sleep(2000);
@@ -67,20 +89,35 @@ public class Nuclear {
 }
 
 class UI {
-    // MENUS
+    // MENUS:
+
+    // MENU CREDITOS
+
     public void c_nucluar() {
         System.out.println("=============================");
         System.out.println("           NUCLEAR");
-        System.out.println("          V0.0.1 ALPHA");
+        System.out.println("          V0.0.2");
         System.out.println("          By Skaylatk");
         System.out.println("=============================\n");
     } 
 
+    // MENU PRINCIPAL
+    
     public void menu() {
         System.out.println("============================");
         System.out.println("        MENU NUCLEAR");
         System.out.println("============================\n");
     }
+
+    // MENU ARMAGEDDON
+
+    public void menu_arm() {
+        System.out.println("===========================");
+        System.out.println("           ARMAGEDDON");
+        System.out.println("          By Skaylatk");
+        System.out.println("===========================\n");
+    }
+
 }
 
 class FE {
@@ -90,6 +127,9 @@ class FE {
             System.out.println("");
         }
     }
+
+    // Exebir ip
+
     public void userIP() throws InterruptedException, URISyntaxException, IOException {
         HttpClient cl = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -99,4 +139,27 @@ class FE {
         HttpResponse<String> httpResponse = cl.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println("Seu ip é: " + httpResponse.body());
     }
+
+    // ARMAGEDDON
+
+    public void Armageddon() {
+        FE fe = new FE();
+        System.out.println("VOCE DECIDIU SOFRER AS CONSEQUENCIAS DO ARMAGEDDON, ENTAO SE PREPARA PRA BALA QUE LA VEM POEIRA!");
+        for (int i = 0; i < 9999; i++) {
+            String arqname = "AMARGEDDON" + i + ".txt";
+            try {
+                File f = new File(arqname);
+
+                if (f.createNewFile()) {
+                    fe.clear(35);
+                } else {
+                    System.err.println("Vixe, Deu Pau");
+                }
+            } catch (IOException e) {
+                System.err.println("Vixe, deu pau");
+            }
+        }
+        
+    }
+
 }
