@@ -106,7 +106,7 @@ class UI {
     
     public void menu() {
         System.out.println("============================");
-        System.out.println("        MENU NUCLEAR");
+        System.out.println("|       MENU NUCLEAR       |");
         System.out.println("============================\n");
     }
 
@@ -114,8 +114,8 @@ class UI {
 
     public void menu_arm() {
         System.out.println("===========================");
-        System.out.println("           ARMAGEDDON");
-        System.out.println("          By Skaylatk");
+        System.out.println("|          ARMAGEDDON     |");
+        System.out.println("|         By Skaylatk     |");
         System.out.println("===========================\n");
     }
 
