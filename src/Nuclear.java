@@ -39,12 +39,16 @@ public class Nuclear {
             ui.menu();
             System.out.println("Seja Bem vindo A o Painel Nuclear, Se divirta com as opçoes:\n");
             System.out.println("1. Seu IP");
-            System.out.println("2. Armageddon (VIRUS) - Em desenvolvimento\n");
+            System.out.println("2. Armageddon (VIRUS)");
+            System.out.println("3. Calculadora - Em desenvolvimento");
+            System.out.println("4. Tradutor - Em desenvolvimento");
+            System.out.println("0. Sair");
             System.out.print("Porfavor, Digite o Numero Referente a sua escolha: ");
             int op = s.nextInt();
             s.nextLine();
             switch (op) {
                 case 1:
+                    // OP IP
                     try {
                         System.out.println("Aguarde, Estamos Obtendo seu ip...");
                         f.userIP();
@@ -60,6 +64,7 @@ public class Nuclear {
                     break;
 
                 case 2:
+                    // OP ARMAGEDDON
                     System.out.println("Atenção, Mesmo Que esse Virus Não seja poderoso, por favor, utilize com moderaçao");
                     System.out.print("Deseja Mesmo Arriscar o Risco de Executar(S/N): ");
                     String wdf = s.nextLine();
@@ -79,7 +84,23 @@ public class Nuclear {
                     } 
                     break;
 
+                case 3:
+                    // OP CALCULADORA
+                    f.calc(4, 3);
+                    Thread.sleep(5000);
+                    break;
+
+                case 4:
+                    // OP TRADUTOR
+                    f.tr("skaylatk", "SKAYLATK");
+                    Thread.sleep(5000);
+                    break;
+
+                case 0:
+                    // OP SAIDA
+                    return;
                 default:
+                    // OP NULL
                     System.err.println("Digite o Numero Correto");
                     Thread.sleep(2000);
                     break;
@@ -97,7 +118,7 @@ class UI {
     public void c_nucluar() {
         System.out.println("=============================");
         System.out.println("|          NUCLEAR          |");
-        System.out.println("|          V0.0.2           |");
+        System.out.println("|          V0.0.3           |");
         System.out.println("|         By Skaylatk       |");
         System.out.println("=============================\n");
     } 
@@ -129,7 +150,7 @@ class FE {
         }
     }
 
-    // Exebir ip
+    // Exebir ip:
 
     public void userIP() throws InterruptedException, URISyntaxException, IOException {
         HttpClient cl = HttpClient.newHttpClient();
@@ -141,7 +162,7 @@ class FE {
         System.out.println("Seu ip é: " + httpResponse.body());
     }
 
-    // ARMAGEDDON
+    // ARMAGEDDON:
 
     public void Armageddon() {
         System.out.println("VOCE DECIDIU SOFRER AS CONSEQUENCIAS DO ARMAGEDDON, ENTAO SE PREPARA PRA BALA QUE LA VEM POEIRA!");
@@ -165,6 +186,18 @@ class FE {
             }
         }
         
+    }
+
+    // Calculadora:
+    
+    public void calc(int y, int x) {
+        System.out.println("Funcão em Desenvolvimento");
+    }
+
+    // Tradutor:
+
+    public void tr(String txt, String e) {
+        System.out.println("Funcão em desenolvimento");
     }
 
 }
