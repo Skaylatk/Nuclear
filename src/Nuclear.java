@@ -1,3 +1,6 @@
+// BY SKAYLATK
+// HTTPS://GITHUB.COM/SKAYLATK/NUCLEAR
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
