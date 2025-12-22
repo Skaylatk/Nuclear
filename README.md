@@ -1,4 +1,5 @@
 # 💥 Nuclear
+![Lisenc](https://img.shields.io/badge/License-S.O.P.C--SKAYLATK-blue)
 
 - Painel de utilidades
 
