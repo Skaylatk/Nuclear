@@ -1,5 +1,5 @@
 # 💥 Nuclear
-![Lisenc](https://img.shields.io/badge/License-MIT)
+![Lisenc](https://img.shields.io/badge/License-MIT-LICENCW)
 
 - Painel de utilidades
 
